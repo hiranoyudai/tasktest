@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="シンプルなタスク管理アプリ" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <title>Simple Task Manager</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <p class="eyebrow">Task Manager</p>
+        <h1 id="app-title">今日やることを、すっきり管理。</h1>
+        <p class="hero-copy">タスクの追加、完了チェック、絞り込み、削除ができるシンプルなタスク管理アプリです。</p>
+      </section>
+      <section class="task-card" aria-label="タスク管理">
+        <form class="task-form" id="task-form">
+          <label for="task-title">新しいタスク</label>
+          <div class="input-row">
+            <input id="task-title" type="text" placeholder="例: デプロイ設定を確認する" maxlength="80" />
+            <button type="submit">追加</button>
+          </div>
+        </form>
+        <div class="stats" aria-live="polite">
+          <span id="remaining-count">未完了: 0</span>
+          <span id="completed-count">完了: 0</span>
+          <span id="total-count">合計: 0</span>
+        </div>
+        <div class="filters" role="tablist" aria-label="タスクの絞り込み">
+          <button type="button" class="active" data-filter="all">すべて</button>
+          <button type="button" data-filter="active">未完了</button>
+          <button type="button" data-filter="done">完了済み</button>
+        </div>
+        <ul class="task-list" id="task-list"></ul>
+        <p class="empty-state" id="empty-state">表示するタスクはありません。まずは1件追加してみましょう。</p>
+        <button type="button" class="clear-button" id="clear-completed" hidden>完了済みを一括削除</button>
+      </section>
+    </main>
+    <script src="/src/main.js"></script>
+  </body>
+</html>
